@@ -1,0 +1,214 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #ffffff;
+  --bg-card: #f5f5f5;
+  --bg-card-hover: #efefef;
+  --text: #444444;
+  --text-heading: #1a1a1a;
+  --text-muted: #888888;
+  --accent: #2299dd;
+  --accent-hover: #1a7fbb;
+  --border: #e5e5e5;
+  --font-body: "Lekton", monospace;
+  --max-width: 600px;
+
+  --color-portfolio: #2299dd;
+  --color-github: #333333;
+  --color-linkedin: #0a66c2;
+  --color-x: #1a1a1a;
+  --color-email: #e74c3c;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 5rem 1.5rem 2rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-heading);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* Wave emoji */
+.wave {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  animation: wave-hand 1.8s ease-in-out infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave-hand {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  10%, 30% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+}
+
+.tagline {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.bio {
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.bio.cta {
+  margin-top: 0.25rem;
+}
+
+.links {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.95rem;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.links a .icon {
+  width: 1.15em;
+  height: 1.15em;
+  transition: color 0.2s ease;
+}
+
+/* Per-link brand colors on hover */
+.link-portfolio .icon { color: var(--color-portfolio); }
+.link-github .icon { color: var(--color-github); }
+.link-linkedin .icon { color: var(--color-linkedin); }
+.link-x .icon { color: var(--color-x); }
+.link-email .icon { color: var(--color-email); }
+
+.links a:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.link-portfolio:hover { border-color: var(--color-portfolio); color: var(--color-portfolio); }
+.link-github:hover { border-color: var(--color-github); color: var(--color-github); }
+.link-linkedin:hover { border-color: var(--color-linkedin); color: var(--color-linkedin); }
+.link-x:hover { border-color: var(--color-x); color: var(--color-x); }
+.link-email:hover { border-color: var(--color-email); color: var(--color-email); }
+
+/* Last link spanning full width when odd count */
+.links a:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.now {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.now p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+}
+
+footer p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 0;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .links {
+    grid-template-columns: 1fr;
+  }
+
+  .links a:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+
+  main {
+    padding-top: 3rem;
+  }
+}
