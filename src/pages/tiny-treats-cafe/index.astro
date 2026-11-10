@@ -1,0 +1,63 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const PLAY_URL = "https://play.google.com/store/apps/details?id=com.vijayalaxmi.tinytreatscafe";
+const ITCH_URL = "https://vijayalaxmi.itch.io/tiny-treats-cafe";
+---
+
+<Base
+  title="Tiny Treats Café"
+  description="A cozy 3D cooking game: serve treats at 10 bakeries around the world. On Google Play, with a free demo in your browser."
+>
+  <div class="game">
+    <img class="game-icon" src="/tiny-treats-cafe/icon.png" alt="" width="96" height="96" />
+    <h1>Tiny Treats Café</h1>
+    <p class="tagline">A cozy cooking game that travels the world.</p>
+
+    <img
+      class="game-shot"
+      src="/tiny-treats-cafe/screenshot.jpg"
+      alt="Customers ordering bubble tea and spring rolls at the Chinese Night Market bakery"
+      width="1200"
+      height="675"
+    />
+
+    <p>
+      Serve coffee, cookies, chai, mochi, tacos, dumplings and more at 10
+      bakeries around the world, from a cozy café to a beach ice-cream stand.
+      Days are short, difficulty can change any time, and the first 20 days
+      are free.
+    </p>
+
+    <div class="links">
+      <a href={PLAY_URL} target="_blank" rel="noopener">Get it on Google Play</a>
+      <a href={ITCH_URL} target="_blank" rel="noopener">Play the free demo in your browser</a>
+    </div>
+    <p class="soon">iPhone and iPad version coming soon.</p>
+
+    <p class="small">
+      <a href="/tiny-treats-cafe/privacy/">Privacy policy</a> ·
+      Questions or feedback: <a href="mailto:vijaya2798@gmail.com">vijaya2798@gmail.com</a>
+    </p>
+  </div>
+</Base>
+
+<style>
+  .game { text-align: center; }
+  .game-icon { border-radius: 22%; margin-bottom: 1rem; }
+  .game h1 { margin-bottom: 0.3rem; }
+  .game .tagline { color: var(--text-muted); margin-bottom: 1.5rem; }
+  .game-shot {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+  }
+  .game p { margin-bottom: 1rem; }
+  .game .links { grid-template-columns: 1fr; }
+  .game .links a { justify-content: center; }
+  .game .soon { margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem; }
+  .game .small { margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted); }
+  .game .small a { text-decoration: underline; overflow-wrap: anywhere; }
+</style>
